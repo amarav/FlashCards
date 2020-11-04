@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 
 // AsyncStorage Helpers Imports
-import { getDecks,saveDeck, getDummyData } from '../utils/api'
+import { getDecks,saveDeck, getDummyData,ResetDecks } from '../utils/api'
 
 class Decklist extends Component {
 
@@ -27,16 +27,11 @@ class Decklist extends Component {
 	}
 
     componentDidMount() {
-
 		getDecks().then((results) => {
-			this.props.dispatch(receiveDecks(results))
-        
-        
-        if (results === null) {
+		this.props.dispatch(receiveDecks(results))  
+        if (!results) {
             saveDeck(getDummyData());
-            decks = getDecks();
-            
-          console.log(decks)
+            getDecks().then((decks) => console.log(decks));                       
           }
         })
 

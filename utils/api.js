@@ -1,9 +1,8 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-const DECKS_STORAGE_KEY = "Flashcards";
+const DECKS_STORAGE_KEY = 'MobileFlashcards'
 
-export function getDecks() {
-   
+export async function getDecks() {   
 	return AsyncStorage.getItem(DECKS_STORAGE_KEY).then((results) => {
 
 		if (results)
@@ -12,11 +11,9 @@ export function getDecks() {
 		}
 		else
 		{
-			console.log('Initial Load')
 			AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify({}))
-			return {}
+			return ''
 		}
-
 	})
 }
 
@@ -24,57 +21,44 @@ export async function saveDeck(deck) {
     await AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(deck));
   }
 
+
+export async function ResetDecks() {
+    try {
+        return AsyncStorage.removeItem(DECKS_STORAGE_KEY)
+    } catch (error) {
+        console.error('Error clearing app data.');
+    }
+}
   
 export function getDummyData() {
     return {
-      React: {
-        title: "React",
+      Space: {
+        title: "Space",
         questions: [
           {
-            question: "What is React?",
-            answer: "A library for managing user interfaces"
+            question: "What is the closest planet to the Sun?",
+            answer: "Mercury"
           },
           {
-            question: "Where do you make Ajax requests in React?",
-            answer: "The componentDidMount lifecycle event"
+            question: "Is the sun a star or a planet?",
+            answer: "Star"
           },
           {
-            question: "What is JSX?",
+            question: "What planet is famous for the beautiful rings that surround it?",
             answer:
-              "Stands for JavaScript XML. It allows combining JavaScript with HTML. Results in easier implementation and clean code."
+              "Saturn"
           }
         ]
       },
-      JavaScript: {
-        title: "JavaScript",
+      Colors : {
+        title: "Colors ",
         questions: [
           {
-            question: "What is a closure?",
+            question: "Which color signifies peace?",
             answer:
-              "The combination of a function and the lexical environment within which that function was declared."
+              "White"
           }
         ]
       },
-      "HTML and CSS": {
-        title: "HTML and CSS",
-        questions: [
-          {
-            question: "What does HTML stand for?",
-            answer: "Hyper Text Markup Language"
-          },
-          {
-            question: "Who is making the Web standards?",
-            answer: "The World Wide Web Consortium"
-          },
-          {
-            question: "What's the tag to create a numbered list?",
-            answer: "<ol>"
-          },
-          {
-            question: "What does CSS stand for?",
-            answer: "Cascading Style Sheets"
-          }
-        ]
-      }
     };
   }

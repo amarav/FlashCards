@@ -7,6 +7,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import AppStatusBar from './statusBar'
 import Icon from "react-native-vector-icons/Ionicons";
 import HomeScreen from './Home'
+import Reset from './Reset'
 
 import Decklist from './Decklist'
 
@@ -71,6 +72,7 @@ function TabNavigator() {
           ),
         }}
       />
+     
     </Tab.Navigator>
   );
 }
