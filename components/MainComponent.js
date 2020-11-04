@@ -4,18 +4,16 @@ import { Platform, StatusBar, View, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import AppStatusBar from './statusBar'
 import Icon from "react-native-vector-icons/Ionicons";
+import HomeScreen from './Home'
+
+import Decklist from './Decklist'
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+
 
 function TabNavigator() {
   return (
@@ -79,11 +77,14 @@ function TabNavigator() {
 
 function MainComponent() {
   return (
-    <NavigationContainer>
+    <View style={{ flex: 1 }}>
+     <AppStatusBar backgroundColor="dimgray" barStyle="light-content"/>
+     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
+    </View>    
   );
 }
 
