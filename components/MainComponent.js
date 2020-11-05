@@ -10,6 +10,7 @@ import HomeScreen from './Home'
 import Reset from './Reset'
 import AddDeck from './AddDeck'
 import DeckDetails from './DeckDetails'
+import AddQuest from './AddQuest'
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -50,7 +51,7 @@ function TabNavigator() {
       />
       <Tab.Screen
         name="Add Deck"
-        component={DeckDetails}
+        component={AddDeck}
         options={{
           tabBarLabel: "Add Deck",
           tabBarIcon: ({ tintColor }) => (

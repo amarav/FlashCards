@@ -62,3 +62,13 @@ export function getInitialData() {
       },
     };
   }
+
+  export function createDeck(deckTitle) {
+    return {
+      [deckTitle]: {
+        title: deckTitle,
+        questions: []
+      }
+    };
+  }
+
