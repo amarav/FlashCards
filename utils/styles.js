@@ -54,5 +54,26 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 20
       },
+      ios_btn: {
+        borderWidth: 1,
+        borderRadius: 7,
+        padding: 10,
+        margin: 10
+      },
+      android_btn: {
+        backgroundColor: '#fa7d7d',
+        padding: 15,
+        marginTop: 15,
+        borderRadius: 20,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+      },
+      button_text: {        
+        color: 'maroon',
+        textAlign: 'center',
+        fontSize: 18
+      },
+      
 
 }) 
