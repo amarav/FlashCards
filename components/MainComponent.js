@@ -8,7 +8,7 @@ import AppStatusBar from './statusBar'
 import Icon from "react-native-vector-icons/Ionicons";
 import HomeScreen from './Home'
 import Reset from './Reset'
-
+import AddDeck from './AddDeck'
 import Decklist from './Decklist'
 
 const Stack = createStackNavigator();
@@ -50,7 +50,7 @@ function TabNavigator() {
       />
       <Tab.Screen
         name="Add Deck"
-        component={HomeScreen}
+        component={AddDeck}
         options={{
           tabBarLabel: "Add Deck",
           tabBarIcon: ({ tintColor }) => (
@@ -72,7 +72,6 @@ function TabNavigator() {
           ),
         }}
       />
-     
     </Tab.Navigator>
   );
 }

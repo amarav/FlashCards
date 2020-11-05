@@ -30,7 +30,7 @@ export async function ResetDecks() {
     }
 }
   
-export function getDummyData() {
+export function getInitialData() {
     return {
       Space: {
         title: "Space",

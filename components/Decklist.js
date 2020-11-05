@@ -1,27 +1,24 @@
-// React Imports
 import React, { Component } from 'react'
-
-// React Native Imports 
 import { Text, View, TouchableOpacity, FlatList, StyleSheet } from 'react-native'
-
-// React Redux Imports
 import { connect } from 'react-redux'
-
-// Action Creators Imports
 import { receiveDecks } from '../actions'
-
-// AsyncStorage Helpers Imports
-import { getDecks,saveDeck, getDummyData,ResetDecks } from '../utils/api'
+import { getDecks,saveDeck, getInitialData,ResetDecks } from '../utils/api'
+import Card from '../shared/card'
+import { Feather } from "@expo/vector-icons";
+import { styles } from '../utils/styles'
 
 class Decklist extends Component {
 
 	renderDeckItem = ({ item }) => {
 		return (
-			<TouchableOpacity 
-				style={styles.deck}
-			>
-				<Text>{item.title}</Text>
-				<Text>{item.questions.length}</Text>
+			<TouchableOpacity>
+            <Card>
+            <View style={styles.cardInfo}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+			<Text>{item.questions.length} Cards</Text>
+            </View>
+                <Feather name="arrow-right-circle" color='black' size={24} />
+            </Card>            
 			</TouchableOpacity>
 		)
 	}
@@ -30,7 +27,7 @@ class Decklist extends Component {
 		getDecks().then((results) => {
 		this.props.dispatch(receiveDecks(results))  
         if (!results) {
-            saveDeck(getDummyData());
+            saveDeck(getInitialData());
             getDecks().then((decks) => console.log(decks));                       
           }
         })
@@ -41,6 +38,7 @@ class Decklist extends Component {
 		
 		return (
 			<View style={styles.container}>
+            <Text style={styles.title}>My Decks</Text>
 				<FlatList 
 					data={this.props.decks}
 					renderItem={this.renderDeckItem}
@@ -52,20 +50,6 @@ class Decklist extends Component {
 
 }
 
-// Component Styles
-const styles = StyleSheet.create({
-	container: {
-		flex: 1
-	},
-	deck: {
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		padding: 20,
-		borderBottomColor: 'black',
-		borderBottomWidth: 1
-	}
-})
 
 function mapStateToProps(decks) {
 	return {

@@ -4,7 +4,7 @@ import Decklist from './Decklist'
 
 function HomeScreen() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1,padding:25 }}>
         <Decklist />
       </View>
     );
