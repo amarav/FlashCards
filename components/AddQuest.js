@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Alert, KeyboardAvoidingView, View, ScrollView } from "react-native";
 import { Text, TextInput, TouchableOpacity } from "react-native";
-import { connect } from "react-redux";
-import { addDeck } from "../actions";
 import { styles } from "../utils/styles";
 import Card from "../shared/card";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Formik } from "formik";
 import { Button } from "react-native-paper";
 import * as yup from "yup";
+import { connect } from 'react-redux'
+import { addQuest } from '../actions'
+import { addQuestToDeck } from '../utils/api'
 
 class AddQuest extends Component {
   state = { deckTitle: "" };
@@ -18,12 +19,23 @@ class AddQuest extends Component {
   };
 
   render() {
+    const { route } = this.props;
+		const { deck } = route.params;
     return (
      
         <Formik
           initialValues={{ question: "",answer: "" }}
           onSubmit={(values) => {
             Alert.alert(JSON.stringify(values));
+            const newCard = {
+			            	question: values.question,
+			            	answer: values.answer
+	        		}
+
+              addQuestToDeck(deck.title, newCard).then(() => {
+              this.props.dispatch(addQuest(deck.title, newCard))
+			} )
+              
           }}
           validationSchema={yup.object().shape({
             question: yup.string().required("Question is required"),
@@ -73,4 +85,4 @@ class AddQuest extends Component {
   }
 }
 
-export default AddQuest;
+export default connect()(AddQuest);

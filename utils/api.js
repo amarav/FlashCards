@@ -89,3 +89,16 @@ export function getInitialData() {
       }
     })
   }
+
+  export function addQuestToDeck(title, card) {
+
+   return AsyncStorage.getItem(DECK_STORAGE_KEY).then((results) => {
+  
+      const decks = JSON.parse(results)
+  
+      decks[title].questions.push(card)
+  
+      AsyncStorage.mergeItem(DECK_STORAGE_KEY, JSON.stringify(decks))
+  
+    })
+  }
