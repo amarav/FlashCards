@@ -12,6 +12,12 @@ import { Button } from "react-native-paper";
 import * as yup from "yup";
 
 class AddDeck extends Component {
+
+  toDeckDetails = (item) => {
+		const { navigate } = this.props.navigation;
+		this.props.navigation.navigate('DeckDetails', { deck : item })
+	}
+
   render() {
     const { navigate } = this.props.navigation;
     const { decks } = this.props;
@@ -23,6 +29,7 @@ class AddDeck extends Component {
           const deck = createDeck(values.title);
           saveDeck(deck);
           this.props.addDeck(deck);
+          this.toDeckDetails(deck)
         }}
         validationSchema={yup.object().shape({
           title: yup.string().required("Deck title is required"),

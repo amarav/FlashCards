@@ -12,15 +12,14 @@ import { addQuest } from '../actions'
 import { addQuestToDeck } from '../utils/api'
 
 class AddQuest extends Component {
-  state = { deckTitle: "" };
-
-  onChangeTitle = (text) => {
-    this.setState({ deckTitle: text });
-  };
+ 
+  toDetails = (item) => {
+		this.props.navigation.navigate('DeckDetails', {deck: item})
+	}
 
   render() {
     const { route } = this.props;
-		const { deck } = route.params;
+		const { item } = route.params;
     return (
      
         <Formik
@@ -32,8 +31,9 @@ class AddQuest extends Component {
 			            	answer: values.answer
 	        		}
 
-              addQuestToDeck(deck.title, newCard).then(() => {
-              this.props.dispatch(addQuest(deck.title, newCard))
+              addQuestToDeck(item.title, newCard).then(() => {
+              this.props.dispatch(addQuest(item.title, newCard))
+              this.toDetails(item)
 			} )
               
           }}
