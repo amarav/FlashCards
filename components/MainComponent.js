@@ -13,6 +13,7 @@ import DeckDetails from "./DeckDetails";
 import Decklist from "./Decklist";
 import AddQuest from "./AddQuest";
 import MainStackNavigator from "./MainStackNavigator";
+import Quiz from './Quiz'
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -110,6 +111,20 @@ function MainComponent() {
             component={DeckDetails}
             options={({ route }) => ({
                title: route.params.deck.title
+            })}
+          />
+          <Stack.Screen
+            name="AddQuest"
+            component={AddQuest}
+            options={({ route }) => ({
+               title: "Add Card"
+            })}
+          />
+          <Stack.Screen
+            name="Quiz"
+            component={Quiz}
+            options={({ route }) => ({
+               title: Quiz
             })}
           />
         </Stack.Navigator>

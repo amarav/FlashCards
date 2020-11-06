@@ -40,10 +40,7 @@ class Decklist extends Component {
 
 	}
 	
-	handleOnPress = deckId => {
-		const { navigate } = this.props.navigation;
-		navigate("Deck", { deckId });
-	  };
+	 
 
 	render() {
 		
