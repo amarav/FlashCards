@@ -64,6 +64,7 @@ export function getInitialData() {
   }
 
   export function createDeck(deckTitle) {
+    console.log('inside create')
     return {
       [deckTitle]: {
         title: deckTitle,
@@ -72,3 +73,19 @@ export function getInitialData() {
     };
   }
 
+  export function fetchDeck(id) {
+
+    return AsyncStorage.getItem(DECK_STORAGE_KEY).then((results) => {
+  
+      const decks = JSON.parse(results)
+      
+      if (decks[id])
+      {
+        return decks[id]
+      }
+      else
+      {
+        return ''
+      }
+    })
+  }

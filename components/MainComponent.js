@@ -10,14 +10,16 @@ import HomeScreen from './Home'
 import Reset from './Reset'
 import AddDeck from './AddDeck'
 import DeckDetails from './DeckDetails'
+import Decklist from './Decklist'
 import AddQuest from './AddQuest'
+import MainStackNavigator from './MainStackNavigator'
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 
 
-function TabNavigator() {
+function TabNavigator(props) {  
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -82,8 +84,10 @@ function MainComponent() {
     <View style={{ flex: 1 }}>
      <AppStatusBar backgroundColor="dimgray" barStyle="light-content"/>
      <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={TabNavigator} />
+      <Stack.Navigator screenOptions={{ gestureEnabled: true }}>
+        <Stack.Screen name="Home" component={TabNavigator} options={{ title: 'Home Screen' }}/>
+        <Stack.Screen name="Decklist" component={Decklist} options={{ title: 'Deck List' }}/>
+        <Stack.Screen name="DeckDetails" component={DeckDetails} options={{ title: 'Deck Details' }}/>
       </Stack.Navigator>
     </NavigationContainer>
     </View>    

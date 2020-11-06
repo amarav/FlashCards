@@ -9,9 +9,13 @@ import { styles } from '../utils/styles'
 
 class Decklist extends Component {
 
+	toDeckDetails = (title) => {
+		this.props.navigation.navigate('DeckDetails', { title })
+	}
+
 	renderDeckItem = ({ item }) => {
 		return (
-			<TouchableOpacity>
+			<TouchableOpacity onPress={() => this.toDeckDetails(item.title)}>
             <Card>
             <View style={styles.cardInfo}>
             <Text style={styles.cardTitle}>{item.title}</Text>
@@ -24,6 +28,7 @@ class Decklist extends Component {
 	}
 
     componentDidMount() {
+		//ResetDecks()
 		getDecks().then((results) => {
 		this.props.dispatch(receiveDecks(results))  
         if (!results) {
@@ -33,6 +38,11 @@ class Decklist extends Component {
         })
 
 	}
+	
+	handleOnPress = deckId => {
+		const { navigate } = this.props.navigation;
+		navigate("Deck", { deckId });
+	  };
 
 	render() {
 		

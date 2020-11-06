@@ -22,7 +22,7 @@ class AddDeck extends Component {
         onSubmit={(values) => {
           const deck = createDeck(values.title);
           saveDeck(deck);
-          addDeck(deck);
+          this.props.addDeck(deck);
         }}
         validationSchema={yup.object().shape({
           title: yup.string().required("Deck title is required"),
