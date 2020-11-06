@@ -9,13 +9,14 @@ import { styles } from '../utils/styles'
 
 class Decklist extends Component {
 
-	toDeckDetails = (title) => {
-		this.props.navigation.navigate('DeckDetails', { title })
+	toDeckDetails = (item) => {
+		const { navigate } = this.props.navigation;
+		this.props.navigation.navigate('DeckDetails', { deck : item })
 	}
 
 	renderDeckItem = ({ item }) => {
 		return (
-			<TouchableOpacity onPress={() => this.toDeckDetails(item.title)}>
+			<TouchableOpacity onPress={() => this.toDeckDetails(item)}>
             <Card>
             <View style={styles.cardInfo}>
             <Text style={styles.cardTitle}>{item.title}</Text>

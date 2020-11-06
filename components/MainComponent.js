@@ -4,28 +4,26 @@ import { Platform, StatusBar, View, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import AppStatusBar from './statusBar'
+import AppStatusBar from "./statusBar";
 import Icon from "react-native-vector-icons/Ionicons";
-import HomeScreen from './Home'
-import Reset from './Reset'
-import AddDeck from './AddDeck'
-import DeckDetails from './DeckDetails'
-import Decklist from './Decklist'
-import AddQuest from './AddQuest'
-import MainStackNavigator from './MainStackNavigator'
+import HomeScreen from "./Home";
+import Reset from "./Reset";
+import AddDeck from "./AddDeck";
+import DeckDetails from "./DeckDetails";
+import Decklist from "./Decklist";
+import AddQuest from "./AddQuest";
+import MainStackNavigator from "./MainStackNavigator";
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-
-
-function TabNavigator(props) {  
+function TabNavigator(props) {
   return (
     <Tab.Navigator
       initialRouteName="Home"
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: 'maroon' }}
+      barStyle={{ backgroundColor: "maroon" }}
     >
       <Tab.Screen
         name="Home"
@@ -82,15 +80,41 @@ function TabNavigator(props) {
 function MainComponent() {
   return (
     <View style={{ flex: 1 }}>
-     <AppStatusBar backgroundColor="dimgray" barStyle="light-content"/>
-     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ gestureEnabled: true }}>
-        <Stack.Screen name="Home" component={TabNavigator} options={{ title: 'Home Screen' }}/>
-        <Stack.Screen name="Decklist" component={Decklist} options={{ title: 'Deck List' }}/>
-        <Stack.Screen name="DeckDetails" component={DeckDetails} options={{ title: 'Deck Details' }}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-    </View>    
+      <AppStatusBar backgroundColor="dimgray" barStyle="light-content" />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            gestureEnabled: true,
+            headerStyle: {
+              backgroundColor: "#101010",
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTintColor: "#ffd700",
+            headerBackTitleVisible: false,
+          }}
+        >
+          <Stack.Screen
+            name="Home"
+            component={TabNavigator}
+            options={{ title: "Home Screen" }}
+          />
+          <Stack.Screen
+            name="Decklist"
+            component={Decklist}
+            options={{ title: "Deck List" }}
+          />
+          <Stack.Screen
+            name="DeckDetails"
+            component={DeckDetails}
+            options={({ route }) => ({
+               title: route.params.deck.title
+            })}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }
 
