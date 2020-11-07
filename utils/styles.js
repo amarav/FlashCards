@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet,Dimensions } from 'react-native'
 
 export const styles = StyleSheet.create({
 	container: {
@@ -74,6 +74,84 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18
       },
+      quizContainer:{
+        display: "flex",
+        flexDirection: "column",
+        padding:50,
+         marginHorizontal:18,
+         marginVertical:100,
+         justifyContent: "space-between",
+      },
+      quizcard: {        
+        height: Dimensions.get('window').height / 3,
+        width: Dimensions.get('window').width - 40,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderWidth: 1,               
+        borderRadius: 10,
+        position: "absolute",
+        backgroundColor: '#FFFFFE',
+        marginTop: 20,
+        padding: 20, 
+      },
+      questionStyle: {
+        fontSize: 33,
+        textAlign: 'center',
+        lineHeight: 36,
+      },
+      flip: {
+        fontSize: 22
+      }, 
+      score:{ 
+        fontSize: 22,
+        lineHeight: 22,
+        marginTop: 10,
+        alignItems:'center',
+      },
+      correctbtn: {
+        color: '#00473E',
+        fontSize: 18,
+        lineHeight: 22,
+        marginTop: 200,        
+        alignItems:'center',
+       }, 
+       showAnsbtn:{
+         margin:10,
+         marginTop: 20,
+         color: '#FFA8BA',
+         fontSize: 18,
+         lineHeight: 22,
+       },
+       results: {
+        display: "flex",
+        flexDirection: "column",
+        padding:50,
+         marginHorizontal:18,
+         marginVertical:100,
+         justifyContent: "space-between",     
+        backgroundColor: '#FFFFFE',               
+        alignItems:'center',
+      },
+      biggerFont: {
+        fontSize: 22
+      },      
+	    percent: {
+		    fontSize: 55,
+		    marginBottom: 20
+      },
       
-
+    	iosBtn: {
+		    borderRadius: 7,
+	    },
+	    androidBtn: {
+		    borderRadius: 2,
+	    },
+      resetbtn: {        
+        marginTop:20,
+        borderRadius: 7,
+        borderWidth: 1,
+        padding: 10,
+        color: '#FFA8BA',
+      },
+       
 }) 
