@@ -4,8 +4,6 @@ import { Text, TextInput, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import { styles } from "../utils/styles";
 import { createDeck, saveDeck } from "../utils/api";
-import Card from "../shared/card";
-import Icon from "react-native-vector-icons/Ionicons";
 import { addDeck } from "../actions";
 import { Formik } from "formik";
 import { Button } from "react-native-paper";
@@ -26,10 +24,10 @@ class AddDeck extends Component {
       <Formik
         initialValues={{ title: "" }}
         onSubmit={(values) => {
-          const deck = createDeck(values.title);
-          saveDeck(deck);
-          this.props.addDeck(deck);
-          this.toDeckDetails(deck)
+          const item = createDeck(values.title);
+          saveDeck(item);
+          this.props.addDeck(item);
+          this.toDeckDetails(item)
         }}
         validationSchema={yup.object().shape({
           title: yup.string().required("Deck title is required"),

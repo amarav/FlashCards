@@ -51,7 +51,7 @@ export function getInitialData() {
         ]
       },
       Colors : {
-        title: "Colors ",
+        title: "Colors",
         questions: [
           {
             question: "Which color signifies peace?",
@@ -73,32 +73,17 @@ export function getInitialData() {
     };
   }
 
-  export function fetchDeck(id) {
-
-    return AsyncStorage.getItem(DECKS_STORAGE_KEY).then((results) => {
-  
-      const decks = JSON.parse(results)
-      
-      if (decks[id])
-      {
-        return decks[id]
-      }
-      else
-      {
-        return ''
-      }
-    })
-  }
-
   export function addQuestToDeck(title, card) {
+    console.log('add quest');
+    console.log(title);
+    console.log(card);
 
-   return AsyncStorage.getItem(DECKS_STORAGE_KEY).then((results) => {
-  
-      const decks = JSON.parse(results)
-  
-      decks[title].questions.push(card)
-  
-      AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(decks))
-  
-    })
+    getDecks().then((decks) => {
+      decks[title] = {
+        ...decks[title],
+        questions: [...decks[title].questions, card]
+        
+    }
+    AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks));
+  })
   }

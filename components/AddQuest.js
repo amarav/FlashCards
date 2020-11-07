@@ -31,10 +31,10 @@ class AddQuest extends Component {
 			            	answer: values.answer
 	        		}
 
-              addQuestToDeck(item.title, newCard).then(() => {
+              addQuestToDeck(item.title, newCard)
               this.props.dispatch(addQuest(item.title, newCard))
               this.toDetails(item)
-			} )
+			
               
           }}
           validationSchema={yup.object().shape({
