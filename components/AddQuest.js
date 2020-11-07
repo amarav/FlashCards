@@ -13,8 +13,8 @@ import { addQuestToDeck } from '../utils/api'
 
 class AddQuest extends Component {
  
-  toDetails = (item) => {
-		this.props.navigation.navigate('DeckDetails', {deck: item})
+  toDetails = (deck) => {
+		this.props.navigation.navigate('DeckDetails', deck)
 	}
 
   render() {
@@ -25,17 +25,13 @@ class AddQuest extends Component {
         <Formik
           initialValues={{ question: "",answer: "" }}
           onSubmit={(values) => {
-            Alert.alert(JSON.stringify(values));
             const newCard = {
 			            	question: values.question,
 			            	answer: values.answer
 	        		}
-
               addQuestToDeck(item.title, newCard)
               this.props.dispatch(addQuest(item.title, newCard))
-              this.toDetails(item)
-			
-              
+              this.toDetails(item[item.title])
           }}
           validationSchema={yup.object().shape({
             question: yup.string().required("Question is required"),

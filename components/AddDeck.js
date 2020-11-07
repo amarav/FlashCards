@@ -24,10 +24,10 @@ class AddDeck extends Component {
       <Formik
         initialValues={{ title: "" }}
         onSubmit={(values) => {
-          const item = createDeck(values.title);
-          saveDeck(item);
-          this.props.addDeck(item);
-          this.toDeckDetails(item)
+          const deck = createDeck(values.title);
+          saveDeck(deck);
+          this.props.addDeck(deck);
+          this.toDeckDetails(deck[values.title])
         }}
         validationSchema={yup.object().shape({
           title: yup.string().required("Deck title is required"),
