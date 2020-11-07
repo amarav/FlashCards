@@ -17,7 +17,10 @@ class DeckDetails extends Component {
 	toStartQuiz = () => {
 		
 		const { route } = this.props;
-		const { deck } = route.params;
+    const { deck } = route.params;
+    console.log('inside start quiz')
+    console.log(deck)
+    console.log(deck.questions.length)
 		if (deck.questions.length > 0)
 		{
 			this.props.navigation.navigate('Quiz', {item: deck})

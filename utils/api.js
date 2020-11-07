@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
+import { Notifications, Permissions } from 'expo'
 
+const REMINDER_KEY = 'MobileFlashcards:reminder'
 const DECKS_STORAGE_KEY = 'MobileFlashcards'
 
 export async function getDecks() {   
@@ -86,4 +88,63 @@ export function getInitialData() {
     }
     AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks));
   })
+  }
+
+
+  function createReminder() {
+    return {
+      title: 'Fllashcard reminder!',
+      body: "Time to take up the quiz today",
+      ios: {
+        sound: true
+      },
+      android: {
+        sound: true,
+        priority: 'high',
+        sticky: false,
+        vibrate: true
+      }
+    }
+  }
+  
+  
+  export function setReminder() {
+  
+    AsyncStorage.getItem(REMINDER_KEY)
+    .then(JSON.parse)
+    .then((data) => {
+  
+      if (data === null)
+      {
+        Permissions.askAsync(Permissions.NOTIFICATIONS)
+          .then(({ status }) => {
+            if (status === 'granted')
+            {
+              Notifications.cancelAllScheduledNotificationsAsync()
+  
+              let tomorrow = new Date()
+              tomorrow.setDate(tomorrow.getDate() + 1)
+              tomorrow.setHours(19)
+              tomorrow.setMinutes(0)
+  
+              Notifications.scheduleLocalNotificationAsync(
+                createReminder(),
+                {
+                time: tomorrow,
+                repeat: 'day'
+                }
+              )
+  
+              AsyncStorage.setItem(REMINDER_KEY, JSON.stringify(true))
+            }
+          })
+      }
+  
+    })
+  }
+  
+  
+  export function clearReminder() {
+    return AsyncStorage.removeItem(REMINDER_KEY)
+      .then(Notifications.cancelAllScheduledNotificationsAsync)
   }

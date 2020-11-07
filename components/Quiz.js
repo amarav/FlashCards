@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons'
 import { styles } from "../utils/styles";
+import { clearReminder, setReminder } from '../utils/api'
 
 class Quiz extends Component {
   state = {
@@ -25,6 +26,10 @@ class Quiz extends Component {
 			passed: currentState.passed + 1
 		}))
 
+    if ( newAnswered === this.props.questionCount )
+		{
+			clearReminder().then(setReminder)
+		}
 	
 	}
 
@@ -41,6 +46,11 @@ class Quiz extends Component {
     }))
     
     const newAnswered = this.state.score
+
+    if ( newAnswered === this.props.questionCount )
+		{
+			clearNotification().then(setNotification)
+		}
 
 	}
 
