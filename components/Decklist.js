@@ -39,7 +39,6 @@ class Decklist extends Component {
         })
 
 	}
-	
 	 
 
 	render() {

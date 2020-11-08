@@ -1,5 +1,6 @@
-import AsyncStorage from '@react-native-community/async-storage';
-import { Notifications, Permissions } from 'expo'
+import AsyncStorage from '@react-native-community/async-storage';import * as Permissions from 'expo-permissions';
+import * as Notifications from 'expo-notifications';
+
 
 const REMINDER_KEY = 'MobileFlashcards:reminder'
 const DECKS_STORAGE_KEY = 'MobileFlashcards'
@@ -121,11 +122,19 @@ export function getInitialData() {
             if (status === 'granted')
             {
               Notifications.cancelAllScheduledNotificationsAsync()
+
+              Notifications.setNotificationHandler({
+                handleNotification: async () => ({
+                  shouldPlaySound: true,
+                  shouldShowAlert: true,
+                  shouldSetBadge: false
+                })
+              })
   
               let tomorrow = new Date()
               tomorrow.setDate(tomorrow.getDate() + 1)
               tomorrow.setHours(16)
-              tomorrow.setMinutes(0)
+              tomorrow.setMinutes(7)
   
               Notifications.scheduleLocalNotificationAsync(
                 createReminder(),
