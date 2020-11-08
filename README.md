@@ -41,9 +41,12 @@ All your devices (computer running the Metro Bundler, Android / iOS device) shou
 * Space
 * Colors
 
+![Deck List](https://github.com/amarav/FlashCards/blob/master/images/decks.png)
+
 # ADD DECK
 <p>You can add your own Decks by touching the Add Deck tab. After creation, you are redirected back to the Decks view where you can see your newly added deck.</p>
 
+![Deck List](https://github.com/amarav/FlashCards/blob/master/images/decks.png)
 
 # DECK VIEW
 
@@ -54,6 +57,8 @@ You could do one of the below:
 * Add a card to the deck
 * Start a quiz
 
+![Deck view](https://github.com/amarav/FlashCards/blob/master/images/decks.png)
+
 # ADD CARD TO DECK
 
 * A deck card is a kind of flash card where you can test your skills
@@ -62,12 +67,16 @@ You could do one of the below:
   * a question
   * an answer
 
+  ![Deck List](https://github.com/amarav/FlashCards/blob/master/images/deckView.png)
+
 # START QUIZ
 
 A quiz can be started on any deck if cards exisits. The quiz will run through all the cards in the deck and you can test your knowledge. You can flip the card for the answer and mark a question as correct or incorrect
+
+![Quiz](https://github.com/amarav/FlashCards/blob/master/images/quiz.png)
 
 # SCORE PAGE
 The quiz result with the pecentage score is shown when the user has completed all the quiz questions.
 A congratulations message is displayed if he has cleared all the questions
 
-
+![Score](https://github.com/amarav/FlashCards/blob/master/images/Score.png)
