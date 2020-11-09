@@ -143,17 +143,7 @@ export function getInitialData() {
                   shouldSetBadge: false
                 })
               })
-  
-              Notifications.scheduleNotificationAsync({
-                content:{
-                   title:"Flash app quiz",
-                   body:"Time to take up the quiz!"
-                },
-                trigger:{
-                  seconds:5,
-                },                 
-              })
-              
+                
               let tomorrow = new Date()
               tomorrow.setDate(tomorrow.getDate() + 1)
               tomorrow.setHours(19)
@@ -163,7 +153,7 @@ export function getInitialData() {
                 createReminder(),
                 {
                 time: tomorrow,
-                repeat: 'day'
+                repeat: true
                 }
               )
               
