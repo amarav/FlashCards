@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, FlatList, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
-import { getDecks,saveDeck, getInitialData,ResetDecks } from '../utils/api'
+import { getDecks,saveDeck, getInitialData,ResetDecks,setReminder } from '../utils/api'
 import Card from '../shared/card'
 import { Feather } from "@expo/vector-icons";
 import { styles } from '../utils/styles'
@@ -30,6 +30,7 @@ class Decklist extends Component {
 
     componentDidMount() {
 		//ResetDecks()
+		setReminder()
 		getDecks().then((results) => {
 		this.props.dispatch(receiveDecks(results))  
         if (!results) {

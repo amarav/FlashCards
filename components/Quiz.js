@@ -27,7 +27,7 @@ class Quiz extends Component {
 			flip:false,
 		}))
 
-    if ( newAnswered === this.props.questionCount )
+    if ( newAnswered === numQuestion )
 		{
 			clearReminder().then(setReminder)
 		}
@@ -49,7 +49,7 @@ class Quiz extends Component {
     
     const newAnswered = this.state.score
 
-    if ( newAnswered === this.props.questionCount )
+    if ( newAnswered === numQuestion )
 		{
 			clearNotification().then(setNotification)
 		}

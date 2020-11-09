@@ -150,14 +150,14 @@ export function getInitialData() {
                    body:"Time to take up the quiz!"
                 },
                 trigger:{
-                  seconds:60,
+                  seconds:5,
                 },                 
               })
               
               let tomorrow = new Date()
               tomorrow.setDate(tomorrow.getDate() + 1)
-              tomorrow.setHours(16)
-              tomorrow.setMinutes(35)
+              tomorrow.setHours(19)
+              tomorrow.setMinutes(00)
   
               Notifications.scheduleLocalNotificationAsync(
                 createReminder(),
@@ -166,7 +166,7 @@ export function getInitialData() {
                 repeat: 'day'
                 }
               )
-  
+              
               AsyncStorage.setItem(REMINDER_KEY, JSON.stringify(true))
             }
           })
