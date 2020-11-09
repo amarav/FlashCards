@@ -95,4 +95,3 @@ A congratulations message is displayed if he has cleared all the questions
 
 <img src="https://github.com/amarav/FlashCards/blob/master/images/Score.png" alt="Score.png" width="300" height="400"/>
 
-![Score](https://github.com/amarav/FlashCards/blob/master/images/Score.png)

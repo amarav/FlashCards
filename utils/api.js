@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';import * as Permissions from 'expo-permissions';
 import * as Notifications from 'expo-notifications';
-
+import {Alert, Linking} from 'react-native';
 
 const REMINDER_KEY = 'MobileFlashcards:reminder'
 const DECKS_STORAGE_KEY = 'MobileFlashcards'
@@ -119,6 +119,19 @@ export function getInitialData() {
       {
         Permissions.askAsync(Permissions.NOTIFICATIONS)
           .then(({ status }) => {
+            if( status !== 'granted')
+            {
+               Alert.alert(
+                 "Access not allowed",
+                 "Please go to settings and enable permissions for this device",
+                 [
+                   { text: "Cancel", onPress:() => console.log('cancel') },
+                   { text: "Allow", onPress:() => Linking.openURL("app-settings:")}
+                 ],
+                 { cancelable : false}
+               );
+               return;
+            }
             if (status === 'granted')
             {
               Notifications.cancelAllScheduledNotificationsAsync()
@@ -131,10 +144,20 @@ export function getInitialData() {
                 })
               })
   
+              Notifications.scheduleNotificationAsync({
+                content:{
+                   title:"Flash app quiz",
+                   body:"Time to take up the quiz!"
+                },
+                trigger:{
+                  seconds:60,
+                },                 
+              })
+              
               let tomorrow = new Date()
               tomorrow.setDate(tomorrow.getDate() + 1)
-              tomorrow.setHours(12)
-              tomorrow.setMinutes(20)
+              tomorrow.setHours(16)
+              tomorrow.setMinutes(35)
   
               Notifications.scheduleLocalNotificationAsync(
                 createReminder(),
