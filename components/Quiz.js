@@ -23,7 +23,8 @@ class Quiz extends Component {
 
 		this.setState((currentState) => ({
 			score: currentState.score + 1,
-			passed: currentState.passed + 1
+			passed: currentState.passed + 1,
+			flip:false,
 		}))
 
     if ( newAnswered === this.props.questionCount )
@@ -42,7 +43,8 @@ class Quiz extends Component {
     questions.push(questions.shift())
 
 		this.setState((currentState) => ({
-			score: currentState.score + 1
+			score: currentState.score + 1,
+			flip:false,
     }))
     
     const newAnswered = this.state.score

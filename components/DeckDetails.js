@@ -28,6 +28,7 @@ class DeckDetails extends Component {
 		else
 		{
 			Alert.alert(
+        'Alert!!!',
 				'The deck doesnt have any cards!', 
 				[
 					{ text: 'Add Card', onPress: this.toNewQuestion },

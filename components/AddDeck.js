@@ -28,6 +28,7 @@ class AddDeck extends Component {
           saveDeck(deck);
           this.props.addDeck(deck);
           this.toDeckDetails(deck[values.title])
+          values.title = ""
         }}
         validationSchema={yup.object().shape({
           title: yup.string().required("Deck title is required"),
