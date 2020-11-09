@@ -18,8 +18,10 @@ This project encompasses the fundamental aspects of building a native applicatio
 
 - Install packages with `yarn` or `npm install`.
 - Install expo-cli using node 
+```
    - npm install -g react-native-cli
    - npm install --global expo-cli
+```   
 - Run `expo start` to start the bundler.
 
 ## How to run 
@@ -41,12 +43,16 @@ All your devices (computer running the Metro Bundler, Android / iOS device) shou
 * Space
 * Colors
 
-![Deck List](https://github.com/amarav/FlashCards/blob/master/images/decks.png)
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/decks.png" alt="decks.png" width="300" height="400"/>
+
 
 # ADD DECK
 <p>You can add your own Decks by touching the Add Deck tab. After creation, you are redirected back to the Decks view where you can see your newly added deck.</p>
 
-![Deck List](https://github.com/amarav/FlashCards/blob/master/images/decks.png)
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/addDeck.png" alt="adddeck.png" width="300" height="400"/>
+
 
 # DECK VIEW
 
@@ -57,7 +63,8 @@ You could do one of the below:
 * Add a card to the deck
 * Start a quiz
 
-![Deck view](https://github.com/amarav/FlashCards/blob/master/images/decks.png)
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/deckView.png" alt="deckView.png" width="300" height="400"/>
 
 # ADD CARD TO DECK
 
@@ -67,16 +74,25 @@ You could do one of the below:
   * a question
   * an answer
 
-  ![Deck List](https://github.com/amarav/FlashCards/blob/master/images/deckView.png)
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/Newques.png" alt="Newques.png" width="300" height="400"/>
+
 
 # START QUIZ
 
 A quiz can be started on any deck if cards exisits. The quiz will run through all the cards in the deck and you can test your knowledge. You can flip the card for the answer and mark a question as correct or incorrect
 
-![Quiz](https://github.com/amarav/FlashCards/blob/master/images/quiz.png)
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/quiz.png" alt="quiz.png" width="300" height="400"/>
+
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/answer.png" alt="Newques.png" width="300" height="400"/>
 
 # SCORE PAGE
 The quiz result with the pecentage score is shown when the user has completed all the quiz questions.
 A congratulations message is displayed if he has cleared all the questions
+
+
+<img src="https://github.com/amarav/FlashCards/blob/master/images/Score.png" alt="Score.png" width="300" height="400"/>
 
 ![Score](https://github.com/amarav/FlashCards/blob/master/images/Score.png)
