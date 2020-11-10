@@ -147,7 +147,7 @@ export function getInitialData() {
               let tomorrow = new Date()
               tomorrow.setDate(tomorrow.getDate() + 1)
               tomorrow.setHours(19)
-              tomorrow.setMinutes(00)
+              tomorrow.setMinutes(20)
   
               Notifications.scheduleLocalNotificationAsync(
                 createReminder(),

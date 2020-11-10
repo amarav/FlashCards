@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
         padding: 10,
         color: 'black',
         borderRadius: 10,
-        marginBottom: 20
+        marginBottom: 10
       },
       ios_btn: {
         borderWidth: 1,

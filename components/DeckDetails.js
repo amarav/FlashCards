@@ -8,20 +8,17 @@ import Card from "../shared/card";
 class DeckDetails extends Component {
 
 	toNewQuestion = () => {
-		const { route } = this.props;
-		const { deck } = route.params;
+		const { deck } =  this.props;
 		this.props.navigation.navigate('AddQuest', {item: deck})
 
 	}
 
 	toStartQuiz = () => {
-		
-		const { route } = this.props;
-    const { deck } = route.params;
+    const { deck } = this.props;
     console.log('inside start quiz')
     console.log(deck)
     console.log(deck.questions.length)
-		if (deck.questions.length > 0)
+		if (this.props.questions.length > 0)
 		{
 			this.props.navigation.navigate('Quiz', {item: deck})
 		}
@@ -40,8 +37,7 @@ class DeckDetails extends Component {
 
 
   render() {
-    const { route } = this.props;
-    const { deck } = route.params;
+    const { deck } = this.props;
     return (
       <View style={styles.formContainer}>
         <Card>
@@ -73,4 +69,16 @@ class DeckDetails extends Component {
   }
 }
 
-export default connect()(DeckDetails);
+function mapStateToProps(decks,props) {
+
+  const currentDeck = Object.keys(decks).filter((deck) => deck === props.route.params.deck.title );
+  const myDeck = decks[currentDeck]
+
+	return {
+    questions:myDeck.questions,
+    title:myDeck.title,
+    deck:myDeck,
+	}
+}
+
+export default connect(mapStateToProps)(DeckDetails);
