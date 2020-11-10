@@ -153,7 +153,7 @@ export function getInitialData() {
                 createReminder(),
                 {
                 time: tomorrow,
-                repeat: true
+                repeat: 'day'
                 }
               )
               
