@@ -149,7 +149,7 @@ export function getInitialData() {
               tomorrow.setHours(19)
               tomorrow.setMinutes(20)
   
-              Notifications.scheduleLocalNotificationAsync(
+              Notifications.scheduleNotificationAsync(
                 createReminder(),
                 {
                 time: tomorrow,
