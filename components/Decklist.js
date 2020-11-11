@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, FlatList, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, FlatList,SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 import { getDecks,saveDeck, getInitialData,ResetDecks,setReminder } from '../utils/api'
@@ -45,14 +45,14 @@ class Decklist extends Component {
 	render() {
 		
 		return (
-			<View style={styles.container}>
+			<SafeAreaView style={styles.container}>
             <Text style={styles.title}>My Decks</Text>
 				<FlatList 
 					data={this.props.decks}
 					renderItem={this.renderDeckItem}
 					keyExtractor={(item, index) => item.title}
 				/>
-			</View>
+			</SafeAreaView>
 		)
 	}
 
