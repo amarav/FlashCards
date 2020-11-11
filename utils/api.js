@@ -149,13 +149,12 @@ export function getInitialData() {
               tomorrow.setHours(19)
               tomorrow.setMinutes(20)
   
-              Notifications.scheduleNotificationAsync(
-                createReminder(),
-                {
-                time: tomorrow,
-                repeat: 'day'
-                }
-              )
+              Notifications.scheduleNotificationAsync({
+                content: createReminder(),
+                trigger: {
+                    hour: 19, minute: 20, repeats: true 
+                  }
+              })
               
               AsyncStorage.setItem(REMINDER_KEY, JSON.stringify(true))
             }

@@ -65,6 +65,11 @@ class Quiz extends Component {
 		}))
 
 	}
+	
+	toDeckDetails = (item) => {
+		const { navigate } = this.props.navigation;
+		this.props.navigation.navigate('DeckDetails', { deck : item })
+	}
 
   render() {
     const { route } = this.props;
@@ -100,6 +105,15 @@ class Quiz extends Component {
 					>
 						<Text style={styles.reset_text}>Restart Quiz</Text>
 					</TouchableOpacity>
+					<TouchableOpacity
+						style={[styles.resetbtn, 
+							Platform.OS === 'ios' ? styles.iosBtn : styles.androidBtn
+						]}
+						onPress={() => this.toDeckDetails(item)}
+					>
+						<Text style={styles.reset_text}>Back to Deck</Text>
+					</TouchableOpacity>
+
 
 				</View>
 			)
