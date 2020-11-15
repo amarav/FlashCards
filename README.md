@@ -96,5 +96,5 @@ A congratulations message is displayed if he has cleared all the questions
 <img src="https://github.com/amarav/FlashCards/blob/master/images/Score.png" alt="Score.png" width="300" height="400"/>
 
 A scheduled notification is shown everyday at 7:20 pm if the user hasn't attempted at least one quiz question for that day.
-<img src="https://github.com/amarav/FlashCards/blob/master/images/notif.png" alt="Score.png" width="300" height="400"/>
+<img src="https://github.com/amarav/FlashCards/blob/master/images/notif.jpg" alt="notification.png" width="300" height="400"/>
 
