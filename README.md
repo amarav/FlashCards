@@ -10,7 +10,7 @@
 
 <p>
 This project encompasses the fundamental aspects of building a native application including handling infinite lists, routing, and user input. By building this project, one can gain an understanding of how to use React Native to build an iOS and Android application.</p>
-<p>A scheduled notification is shown everyday at 7:00 pm if the user hasn't attempted at least one quiz question for that day.
+<p>A scheduled notification is shown everyday at 7:20 pm if the user hasn't attempted at least one quiz question for that day.
 </p>
 
 
@@ -94,4 +94,7 @@ A congratulations message is displayed if he has cleared all the questions
 
 
 <img src="https://github.com/amarav/FlashCards/blob/master/images/Score.png" alt="Score.png" width="300" height="400"/>
+
+A scheduled notification is shown everyday at 7:20 pm if the user hasn't attempted at least one quiz question for that day.
+<img src="https://github.com/amarav/FlashCards/blob/master/images/notif.png" alt="Score.png" width="300" height="400"/>
 
